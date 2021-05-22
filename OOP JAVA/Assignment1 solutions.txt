@@ -1,0 +1,327 @@
+================================================Assignment1==============================================
+Q1.
+Ans:public class OpsAssignment1 {
+
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+
+	}
+
+}
+===========================================================================================================
+
+Q2.
+Ans:public class OpsAssignment1Q2 {
+
+	public static void main(String[] args) {
+		int rollNo=100;
+		System.out.println("roll no:"+rollNo);
+		
+
+	}
+
+}
+========================================================================================
+Q3.
+public class OpsAssignment1Q3 {
+	public static void main(String args[])
+	{
+			int x=10;
+			
+			int y=(x*x)+(3*x)-7;
+			System.out.println("First operation Result A:"+y);
+			System.out.println("==================================");
+			y=x++ + ++x;
+			System.out.println("Second operation Result B: "+x+" "+y);
+			System.out.println("==================================");
+			int z = (x++ + --y + --x + x++);
+			System.out.println("Third operation Result C :"+x+" "+y+" "+z+" ");
+			System.out.println("==================================");
+			//z = ((x && y) ||(x || y))
+		//	System.out.println("C :"+x+" "+y+" "+z+" ");
+			boolean a=true;
+			boolean b=false;
+			boolean c;
+			c=((a && b) ||(a || b));
+			System.out.println("Third operation Result D :"+c);
+			
+			
+			
+		}
+
+	}
+================================================================================================
+Q4.
+Ans:import java.util.Scanner;
+class OpsAssignment1Q4 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter First value :");
+		byte number1 = scan.nextByte();
+		System.out.println("Enter Second value :");
+		byte number2 = scan.nextByte();
+		int add=number1+number2;
+		System.out.println("Addition:"+add);
+		
+	}
+=================================================================================================
+Q5.
+Ans:public class OpsAssignment1Q5 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String str1=args[0];
+		System.out.print("Welcome "+str1);
+
+	}
+
+}
+====================================================================================================
+Q6.
+
+import java.util.Scanner;
+public class OpsAssignment1Q6 {
+
+	public static void main(String[] args) {
+		System.out.print("Enter Radius of circle: ");
+		Scanner scan = new Scanner(System.in);
+		float radius = scan.nextFloat();
+		System.out.println("Area of circle:"+(22/7)*(radius*radius));
+		System.out.println("Circumference of circle:"+(2*(22/7)*(radius*radius)));
+		
+		scan.close();  
+	}
+
+}
+=============================================================================================
+Q7.
+Ans:import java.util.Scanner;
+public class OpsAssignment1Q6 {
+	public static void main(String args[]) {
+		Scanner scan = new Scanner(System.in);
+		int[] marks=new int[5];
+		float total=0;
+		float percent=0;
+		System.out.println("Enter marks of 5 subjects");
+		for(int i=0;i<5;i++) {
+			marks[i]=scan.nextInt();
+			total=total+marks[i];
+		}
+		percent=((total/500)*100);
+		System.out.println("[Percentage Marks="+percent+"%"+"]");
+		scan.close();
+	}
+}
+==============================================================================================
+Q8.
+Ans:import java.util.Scanner;
+public class OpsAssignment1Q8 {
+
+	static float calaculateSimpleIntrest(float principle,float rate,float time) {
+		return(principle*rate*time);
+	}
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter Principle Amount :");
+		float principle=scan.nextFloat();
+		
+		System.out.print("Enter rate of Intrest :");
+		float rate=scan.nextFloat();
+		
+		System.out.print("Enter time :");
+		float time=scan.nextFloat();
+		
+		System.out.println("Simple Intrest: "+calaculateSimpleIntrest(principle,rate,time));
+		
+	}
+
+}
+====================================================================================================
+Q9.
+Ans: import java.util.Scanner;
+public class OpsAssignment1Q9 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("Enter no of days :");
+		int days=scan.nextInt();
+		
+		int month=days/30;
+		
+		int Years=days/365;
+		
+		int noDays=((days%365)/7);
+		System.out.println("NoOfDays :"+noDays+ " "+"No of Months :"+month+" "+"No of Years :"+Years);
+		
+		scan.close();
+
+	}
+
+}
+===================================================================================================================
+Q10.
+Ans:public class Assignment1Q10 {
+	public static void main(String args[]) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter farenhite :");
+		float farenhite=scan.nextFloat();
+		float celcious=(32*farenhite-32)*5/9;
+		System.out.println("Celcious"+celcious);
+		scan.close();
+		
+	}
+
+}
+=================================================================================================================
+Q11.
+Ans:import java.util.Scanner;
+
+public class OpsAssignment1Q11 {
+
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		int number1=scan.nextInt();
+		int number2=scan.nextInt();
+		number1=number1+number2;
+		number2=number1-number2;
+		number1=number1-number2;
+		System.out.println("Number 1: "+number1+" Number2 :"+number2);
+		scan.close();
+	}
+
+}
+=============================================================================================
+Q12.
+Ans:
+import java.util.Scanner;
+public class OpsAssignment1Q12 {
+
+	public static void calculateGS(float basicSalary,float DA,float HRA) {
+		float grossSalary=0;
+		grossSalary= basicSalary + DA + HRA;
+		System.out.println("Gross Salary :"+grossSalary);
+	}
+	public static void main(String[] args) {
+		System.out.println("Enter your basic salary");
+		Scanner scan = new Scanner(System.in);
+		int basicSalary= scan.nextInt();
+		float DA=0;
+		//float TA=0;
+		float HRA=0;
+		if(basicSalary<10000) {
+			DA=(90/100)*basicSalary;
+			HRA=(10/100)*basicSalary;
+			calculateGS(basicSalary,DA,HRA);
+		}
+		else if(basicSalary>=10000) {
+			DA=(98/100)*basicSalary;
+			HRA=2000;
+			calculateGS(basicSalary,DA,HRA);
+
+		}
+		else {
+			System.out.println("No provision");
+		}
+		scan.close();
+	}
+
+}
+
+=============================================================================================
+Q13.
+Ans:
+import java.util.Scanner;
+public class OpsAssignment1Q13 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter three numbers ");
+		int number=scan.nextInt();
+		int number1=scan.nextInt();
+		int  number3=scan.nextInt();
+	
+		if(number1>number1 && number1>number3)
+			System.out.println("Greater Number :"+ number);
+		else if(number1>number1 && number1>number3)
+			System.out.println("Greater Number :"+ number1);
+		else 
+			System.out.println("Greater Number :"+ number3);
+		
+	    int greater = number3 > (number > number1 ? number : number1) ? number3 : ((number > number1) ? number : number1);
+		System.out.println(greater);
+	    scan.close();
+		
+		
+		
+	}
+
+}
+========================================================================================================
+By using turnary Operator:
+import java.util.Scanner;
+public class OpsAssignment1Q13 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter three numbers ");
+		int number=scan.nextInt();
+		int number1=scan.nextInt();
+		int  number3=scan.nextInt();
+	
+	    int greater = number3 > (number > number1 ? number : number1) ? number3 : ((number > number1) ? number : number1);
+		System.out.println(greater);
+	    scan.close();	
+	}
+
+}
+===============================================================================================================================
+Q14.
+Ans:
+import java.util.Scanner;
+public class OpsAssignment1Q14 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter a year :");
+		int year=scan.nextInt();
+		
+		if(year%4==0)
+			System.out.println(year+" is leap year");
+		else if(year%400==0)
+			System.out.println(year+" is leap year");
+		else if(year%100==0)
+			System.out.println(year+" Not leap Year");
+		else
+			System.out.println(year+" is not leap year");
+
+		scan.close();
+	}
+
+}
+=============================================================================================================================
+Q15.
+Ans:
+import java.util.Scanner;
+public class OpsAssignment1Q15 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter your Genter M or G");
+		char ch =scan.next().charAt(0);
+		System.out.println("Enter your age");		
+		int age=scan.nextInt();F
+		if((ch=='F' && age>=18)||(ch=='M'  && age>=21))
+			System.out.println("You are Eligible for Marriage");
+		else
+			System.out.println("You are not Eligible for Marriage");
+		
+		scan.close();
+	}
+
+}
+===================================================================================================================================
