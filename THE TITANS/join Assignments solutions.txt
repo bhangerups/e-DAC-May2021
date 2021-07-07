@@ -1,0 +1,99 @@
+// Rupali Bhange
+
+select * from departments;
+SELECT * FROM EMPLOYEES;
+select * from jobs;
+select * from job_history;
+select * from locations;
+select * from countries;
+select * from regions;
+
+#1.    Write a query to find the addresses (location_id, street_address, city, state_province, country_name) of all the departments.
+
+select distinct location_id, street_address, city, state_province, country_name from locations inner join countries ;
+
+select Location_id, Street_Address, City, State_Province, COUNTRY_NAME from countries join locations where
+countries.country_id = locations.country_id;
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+
+#2.	Write a query to find the name (first_name, last name), department ID and name of all the employees.
+
+select FIRST_NAME,LAST_NAME,DEPARTMENT_ID FROM EMPLOYEES;  
+
+-- --------------------------------------------------------------------------------------------------------------------------------
+
+#3.	Write a query to find the name (first_name, last_name), job, department ID and name of the employees who works in London.
+
+select first_name,last_name,job_id,department_id,countries.country_name from employees inner join countries having country_name='London';
+
+-- -------------------------------------------------------------------------------------------------------------------------------------------
+
+#4.	Write a query to find the employee id, name (last_name) along with their manager_id and name (last_name).
+
+select employee_id,last_name,departments.manager_id from employees join departments where employees.department_id=departments.department_id;
+
+-- ------------------------------------------------------------------------------------------------------------------------
+
+#5.	Write a query to find the name (first_name, last_name) and hire date of the employees who was hired after 'Jones.
+
+select first_name,last_name,hire_date from employees where hire_date>'1987-06-28';
+
+-- -----------------------------------------------------------------------------------------------------------------------------
+
+#6.	Write a query to get the department name and number of employees in the department.
+
+select count(*),department_name from employees join departments where employees.department_id=departments.department_id;
+
+-- --------------------------------------------------------------------------------------------------------------------------
+
+#7.	Write a query to find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90.
+
+SELECT  employees.department_id, employees.employee_id, jobs.job_title, datediff(job_history.end_date, job_history.start_date) as diffDate
+FROM employees
+JOIN jobs ON employees.job_id = jobs.job_id
+JOIN job_history ON employees.employee_id = job_history.employee_id
+WHERE employees.department_id = 90;
+
+-- ----------------------------------------------------------------------------------------------------------------
+
+#8.	Write a query to display the department ID and name and first name of manager. 
+
+select  departments.department_id,department_name,employees.first_name from departments join employees where departments.manager_id=employees.manager_id;
+select distinct departments.department_id,department_name,employees.first_name from departments join employees where departments.department_id=employees.department_id;
+
+-- -----------------------------------------------------------------------------------------------------------
+
+#9.	Write a query to display the department name, manager name, and city.
+
+SELECT employees.first_name, departments.department_name, locations.city
+FROM departments
+JOIN employees ON departments.manager_id = employees.employee_id
+JOIN locations ON departments.location_id = locations.location_id;
+
+-- ------------------------------------------------------------------------
+
+#10. Write a query to display the job title and average salary of employees.
+
+select job_title,avg(employees.salary) from employees join jobs where employees.job_id=jobs.job_id;
+
+-- -----------------------------------------------------------------------------------------------------
+
+#11.Write a query to display job title, employee name, and the difference between salary of the employee and minimum salary for the job.
+
+select jobs.job_title,employees.first_name,employees.last_name,(employees.salary-jobs.min_Salary) as salary_diff,jobs.min_salary from employees natural join jobs;
+-- ----------------------------------------------------------------------------------------------------------------------------
+
+#12.Write a query to display the job history that were done by any employee who is currently drawing more than 10000 of salary.
+
+select * from job_history join employees on (job_history.employee_id=employees.employee_id) where employees.salary>10000;
+-- --------------------------------------------------------------------------------------------------------------------------
+
+#13.Write a query to display department name, name (first_name, last_name), hire date, salary of the manager for all managers whose experience is more than 15 years.
+
+SELECT first_name, last_name, hire_date, salary, 
+(DATEDIFF(now(), hire_date))/365 Experience 
+FROM departments d JOIN employees e 
+ON (d.manager_id = e.employee_id) 
+WHERE (DATEDIFF(now(), hire_date))/365>15;
+-- ---------------------------------------------------------------------------------------------------------------
